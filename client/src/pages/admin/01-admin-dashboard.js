@@ -2,7 +2,7 @@ import React from 'react'
 import EditServicesGrid from '../../components/admin/dashboard-component/editservicesGrid'
 import CreateService from '../../components/admin/dashboard-component/createService'
 import { useNavigate, navigate } from 'react-router-dom'
-
+import './01-admin-dashboard.css';
 
 function AdminDashboard(){
     const navigate = useNavigate();

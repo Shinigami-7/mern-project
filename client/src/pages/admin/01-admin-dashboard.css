@@ -1,0 +1,8 @@
+.options{
+    height: 60px;
+    width: 70px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
