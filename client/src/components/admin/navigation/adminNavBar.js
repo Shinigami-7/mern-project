@@ -1,23 +1,42 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import './adminNavbar.css';
+import "./adminNavbar.css";
+import { useDispatch } from "react-redux";
 
+import { resetLoginDetails } from "../../../redux/reducers/userSlice";
 
-function AdminNavBar(){
-    const navigate = useNavigate()
-    return(
-        <div class="navbar">
-            <div class="logo-holder"><img onClick={()=>navigate("/")} src="evotik logo.png"/> </div>
-            <div>  <p onClick={()=>navigate("/")}>Home</p> </div>
-           <div> <p onClick={()=>navigate("/aboutus")}>About Us</p> </div>
-           <div>  <p onClick={()=>navigate("/services")}>Services</p></div>
-           <div> <p onClick={()=>navigate("/contactus")}>Contact Us</p></div>
+function AdminNavBar() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  return (
+    <div class="navbar">
+      <div class="logo-holder">
+        <img onClick={() => navigate("/")} src="evotik logo.png" />{" "}
+      </div>
+      <div>
+        {" "}
+        <p onClick={() => navigate("/")}>Edit Home</p>{" "}
+      </div>
+      <div>
+        {" "}
+        <p onClick={() => navigate("/aboutus")}>Edit About Us</p>{" "}
+      </div>
+      <div>
+        {" "}
+        <p onClick={() => navigate("/services")}>Edit Services</p>
+      </div>
+      <div>
+        {" "}
+        <p onClick={() => navigate("/contactus")}>Edit Contact Us</p>
+      </div>
 
-           <div class="buttons">
-           <div> <p onClick={()=>navigate("/admin-login")}>Login</p></div>
-           <div> <p onClick={()=>navigate("/admin-signup")}>Signup</p></div>
-           </div>
+      <div class="buttons">
+        <div>
+          {" "}
+          <p onClick={() => dispatch(resetLoginDetails())}>Logout</p>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
-export default AdminNavBar
+export default AdminNavBar;

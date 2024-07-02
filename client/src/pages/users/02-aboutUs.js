@@ -1,9 +1,11 @@
-
+import './aboutus.css'
 
 const AboutUs = () => {
     return (
         <div>
-            This is About Us page.
+            <div class='title'>
+            <h1>About Us</h1>
+            </div>
         </div>
     )
 }

@@ -1,8 +1,48 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import "./servicesGrid.css"
 
-function ServicesGrid(){
-    return(
-        <div>ServicesGrid</div>
+function ServicesGrid() {
+    const [services, setServices] = useState([])
+
+    try {
+        const fetchServicesList = async () => {
+            const response = await axios.get("http://localhost:8000/get-service")
+            if (response) {
+                setServices(response.data.data)
+            } else {
+                console.log("Server error")
+            }
+        }
+        useEffect(() => {
+            fetchServicesList()
+        }, [])
+    } catch (error) {
+        console.log("Failed to fetch data")
+    }
+
+
+
+
+    return (
+        <div class="grid" >
+            {services && services.map((service, index) => (
+                <div class="service-card">
+                    <div class='image-container'>
+                        <img src={`${service.image}`} alt='product' />
+                    </div>
+                    <div class="text-container">
+                        <h2>{service.title}</h2>
+                        <h2>${service.price}</h2>
+                        <div class="rating-container">
+                            <label>Rating</label>
+                            <label>{service.rating}</label>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
     )
 }
 

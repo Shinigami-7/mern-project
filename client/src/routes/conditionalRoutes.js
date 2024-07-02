@@ -10,6 +10,8 @@ import AdminLoginPage from "../pages/admin/auth/02-adminLoginPage"
 import AdminDashboard from "../pages/admin/01-admin-dashboard"
 import EditServicesGrid from "../components/admin/dashboard-component/editservicesGrid"
 import CreateService from "../components/admin/dashboard-component/createService"
+import AdminNavBar from "../components/admin/navigation/adminNavBar"
+import Footer from "../components/user/Footer/footer"
 
 function ConditionalRoute() {
 
@@ -35,6 +37,7 @@ const UserRoutes = () =>{
             <Route path='/services' element={<Services/>}/>
             <Route path='/contactus' element={<ContactUs/>}/>
         </Routes>
+        <Footer/>
         </>
     )
 }   
@@ -43,6 +46,7 @@ const UserRoutes = () =>{
 const AdminRoutes = () => {
         return(
             <>
+            <AdminNavBar/>
             <Routes>
             <Route path='/' element={<AdminDashboard/>}/>
             <Route path='/edit-services' element={<EditServicesGrid/>}/>
